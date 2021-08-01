@@ -9,7 +9,7 @@ pipeline {
 
     stage('test') {
       steps {
-        bat 'dotnet add ${workspace}/C:\\JH\\workspace\\_testing-with-dotnet-core_master\\app  package JUnitTestLogger --version 1.1.0  '
+        bat 'dotnet add C:\\JH\\workspace\\_testing-with-dotnet-core_master\\app  package JUnitTestLogger --version 1.1.0  '
       }
     }
 
