@@ -21,7 +21,7 @@ pipeline {
 
     stage('Covergae') {
       steps {
-        bat 'CodeCoverage.exe analyze  /output:${WORKSPACE}\\\\J_testing-with-dotnet-core_master\\TestResults\\1.0.0.${env.BUILD_NUMBER}\\xmlresults.coveragexml  ${WORKSPACE}\\\\TestResults\\\\testcoverage.coverage'
+        bat 'CodeCoverage.exe analyze  /output:${WORKSPACE}\\\\_testing-with-dotnet-core_master\\TestResults\\1.0.0.${env.BUILD_NUMBER}\\xmlresults.coveragexml  ${WORKSPACE}\\\\TestResults\\\\testcoverage.coverage'
       }
     }
 
