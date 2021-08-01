@@ -15,7 +15,7 @@ pipeline {
 
     stage('error') {
       steps {
-        bat 'cd app dotnet test --logger \\"junit;LogFilePath=\\"${WORKSPACE}\\"/TestResults/1.0.0.\\"${env.BUILD_NUMBER}\\"/results.xml\\" --configuration release --collect \\"Code coverage\\""'
+        bat 'cd app dotnet test --logger \\"junit;LogFilePath=\\"C:\\JH\\workspace\\_testing-with-dotnet-core_master\\app\\"/TestResults/1.0.0.\\"${env.BUILD_NUMBER}\\"/results.xml\\" --configuration release --collect \\"Code coverage\\""'
       }
     }
 
