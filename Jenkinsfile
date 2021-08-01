@@ -9,11 +9,11 @@ pipeline {
 
     stage('test') {
       steps {
-        bat 'dotnet add C:\\JH\\workspace\\_testing-with-dotnet-core_master\\app  package JUnitTestLogger --version 1.1.0   dotnet test '
+        bat 'dotnet add C:\\JH\\workspace\\_testing-with-dotnet-core_master\\app  package JUnitTestLogger --version 1.1.0 '
       }
     }
 
-    stage('') {
+    stage('error') {
       steps {
         dotnetTest(logger: '\\"junit;LogFilePath=\\"${WORKSPACE}\\"/TestResults/1.0.0.\\"${env.BUILD_NUMBER}\\"/results.xml\\" --configuration release --collect \\"Code coverage\\"')
       }
