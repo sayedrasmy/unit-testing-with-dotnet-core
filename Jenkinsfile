@@ -13,9 +13,21 @@ pipeline {
       }
     }
 
-    stage('error') {
+    stage('Unit test') {
       steps {
         dotnetTest(logger: '\\"junit;LogFilePath=\\"${WORKSPACE}\\"/TestResults/1.0.0.\\"${env.BUILD_NUMBER}\\"/results.xml\\" --configuration release --collect \\"Code coverage\\"')
+      }
+    }
+
+    stage('Covergae') {
+      steps {
+        bat 'CodeCoverage.exe analyze  /output:${WORKSPACE}\\\\TestResults\\\\xmlresults.coveragexml  ${WORKSPACE}\\\\TestResults\\\\testcoverage.coverage'
+      }
+    }
+
+    stage('Report Generator') {
+      steps {
+        bat 'ReportGenerator.exe -reports:${WORKSPACE}\\\\TestResults\\\\xmlresults.coveragexml -targetdir:${WORKSPACE}\\\\CodeCoverage_${env.BUILD_NUMBER}'
       }
     }
 
